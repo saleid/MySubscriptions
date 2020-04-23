@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MySubscriptions.Views.NewSubScriptionsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MySubscriptions.ViewModel"
+    Title="New subscriptions"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:NewSubscriptionVM x:Key="vm" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem
+            Command="{Binding Source={StaticResource vm}, Path=SaveSubscriptionCommand}"
+            CommandParameter="{Binding Source={StaticResource vm}, Path=Name}"
+            Text="Save" />
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <StackLayout Margin="16" BindingContext="{StaticResource vm}">
+            <Entry Placeholder="subscription Name" Text="{Binding Name, Mode=TwoWay}" />
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label Text="Is Active" VerticalOptions="Center" />
+                <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
