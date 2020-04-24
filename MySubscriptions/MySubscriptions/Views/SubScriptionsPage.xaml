@@ -23,7 +23,10 @@
         SelectedItem="{Binding SelectedSubscription, Mode=TwoWay}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Detail="{Binding SubscribedDate}" Text="{Binding Name}" />
+                <TextCell
+                    Detail="{Binding SubscribedDate}"
+                    DetailColor="{StaticResource accentColor}"
+                    Text="{Binding Name}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
